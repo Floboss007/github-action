@@ -1,0 +1,7 @@
+.terraform.*
+flo-ec2-ssh-key.pem
+.terraform.lock.hcl
+terraform.tfstate
+terraform.tfstate.backup
+.terraform/*
+.terraform/
