@@ -14,3 +14,6 @@ output "key_name" {
   value = aws_key_pair.flo_key.key_name
 }
 
+output "ec2-user" {
+  value = "ubuntu"
+}
