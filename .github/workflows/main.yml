@@ -16,7 +16,7 @@ jobs:
     - name: Build docker image and run tests
       run: |
         docker build -t my-image:latest .
-        docker run my-image:latest -p 8080:80 --name web-test
+        docker run --name web-test -p 8080:80 my-image:latest
     - name: Wait for server to boot up
       run: sleep 10
 
