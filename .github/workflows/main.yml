@@ -27,7 +27,7 @@ jobs:
         
     - name: Cleanup Container
       if: always()
-      run: docker rm -f my-test-app
+      run: docker rm -f web-test
   
     - name: Execute remote SSH commands using password
       uses: appleboy/ssh-action@v1
@@ -38,12 +38,13 @@ jobs:
         port: ${{ secrets.PORT }}
         script: |
           cd /tmp
+          sudo rm -rf my-app
           git clone ${{ secrets.REPO_URL }} my-app
           cd my-app
-          docker build -t my-image:latest .
-          docker stop web-container || true
-          docker rm web-container || true
-          docker run -d -p 8080:80 --name web-app my-image:latest
+          sudo docker build -t my-image:latest .
+          sudo docker stop web-app || true
+          sudo docker rm web-app || true
+          sudo docker run -d -p 8080:80 --name web-app my-image:latest
 
 
 

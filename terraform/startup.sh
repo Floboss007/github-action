@@ -2,6 +2,7 @@
 
 # This script is executed on the first boot of the instance.
 GITHUB_REPO_URL="https://github.com/Floboss007/github-action.git"
+USER="ubuntu"
 
 # Add Docker's official GPG key:
 sudo apt update
@@ -30,4 +31,4 @@ git clone ${GITHUB_REPO_URL} /home/ubuntu/app
 
 workdir="/home/ubuntu/app"
 docker build -t web-image $workdir
-docker run -d -p 8080:80 --name web-container web-image
+docker run -d -p 8080:80 --name web-app web-image
